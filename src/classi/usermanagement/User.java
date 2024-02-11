@@ -18,6 +18,10 @@ public class User implements OptionalData {
      * Costruttore vuoto.
      */
     public User(){
+        name = "";
+        surname = "";
+        email = "";
+        password = "";
     }
     /**
      * Costruttore con parametri.

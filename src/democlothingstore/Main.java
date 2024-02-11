@@ -15,7 +15,7 @@ public class Main{
         String start;
         User objectUser = new User();
         do{
-            System.out.print("\nBenvenuto su ZalandoCOPY\nMessaggio: Per effettuare lo shopping sul nostro sito è necessario registrarsi. :)\nVuoi registrarti? Yes/No\nSe sei gia registrato: LogIn/LogOut\nRisposta: ");
+            System.out.print("\nBenvenuto su ZalandoCOPY\nMessaggio: Per effettuare lo shopping sul nostro sito è necessario registrarsi. :)\nVuoi registrarti? Yes/No\nSe sei gia registrato: LogIn/Exit\nRisposta: ");
             start = input.nextLine();
             switch(start.toLowerCase()){
                 // caso per registrarsi come utente
@@ -44,7 +44,7 @@ public class Main{
                     break;
 
                 // in questo case se start == "out" non mettendo il break esegue il case "no", per terminare il programma
-                case "logout":
+                case "exit":
                 case "no":
                     System.out.println("È stato bello averti qui sul nostro sito. Torna presto a trovarci!!");
                     break;
@@ -110,6 +110,6 @@ public class Main{
                     System.out.println("Opzione Inesistente. Riprova.");
                     break;
             }
-        }while(!start.equalsIgnoreCase("no") && !start.equalsIgnoreCase("logout"));
+        }while(!start.equalsIgnoreCase("no") && !start.equalsIgnoreCase("exit"));
     }
 }

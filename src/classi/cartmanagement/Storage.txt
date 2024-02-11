@@ -14,5 +14,5 @@ Cargo/Levis/55/UKC123/10
 Cargo/Charrat/80/OYH456/10
 Cargo/Bershka/24.99/XYZ126/10
 Shorts/Levis/45/LKC123/10
-Shorts/Charrat/50/OGZ456/9
-Shorts/Bershka/14.99/XYZ066/4
+Shorts/Charrat/50/OGZ456/10
+Shorts/Bershka/14.99/XYZ066/10

@@ -64,36 +64,57 @@ public class Products {
         Scanner input = new Scanner(System.in);
         while(true) {
             System.out.print("\nSe desideri aggiungere al carrello qualche articolo inserisci il CODICE dell'articolo.\nAltrimenti inserisci '!'\nRisposta: ");
-            String itemCode = input.nextLine();
-            if(itemCode.equals("!")){
-                break;
+            String itemCode;
+            boolean found = false;
+            while (true){
+                itemCode = input.nextLine();
+                if(itemCode.equals("!")){
+                    break;
+                }
+                for(Product p: data){
+                    if(itemCode.equalsIgnoreCase(p.getCode())){
+
+                        found = true;
+                        break;
+                    }
+                }
+                if (found){
+                    break;
+                }
+                System.out.println("Inserire codice articolo corretto");
             }
+
             try {
                 if (!data.isEmpty()) {
                     System.out.println("Quanti ne vuoi di questo articolo? ");
-                    int numberOfArticle = input.nextInt();
-                    input.nextLine();
-                    
-                    if (numberOfArticle>0) {
-                        for (Product p : data) {
-                            if (p.getCode().equals(itemCode)) {
-                                if (numberOfArticle <= p.getQuantity()) {
-                                    letturaRiscrittura(itemCode, numberOfArticle);
-                                    ShoppingCart.findArticle(itemCode, numberOfArticle);
-                                    break;
-                                } else {
-                                    throw new IllegalArgumentException("Articoli insufficenti. Riporva.");
+                    int numberOfArticle;
+                    if(input.hasNextInt()) {
+                        numberOfArticle = input.nextInt();
+                        input.nextLine();
+                        if (numberOfArticle > 0) {
+                            for (Product p : data) {
+                                if (p.getCode().equals(itemCode)) {
+                                    if (numberOfArticle <= p.getQuantity()) {
+                                        letturaRiscrittura(itemCode, numberOfArticle);
+                                        ShoppingCart.findArticle(itemCode, numberOfArticle);
+                                        break;
+                                    } else {
+                                        throw new IllegalArgumentException("Articoli insufficenti. Riporva.");
+                                    }
                                 }
                             }
+                        } else {
+                            throw new IllegalArgumentException("numero degli articoli Impossibile");
                         }
-                    }else{
-                        throw new IllegalArgumentException("numero degli articoli Impossibile");
+                    }else {
+                        throw new IllegalArgumentException("Inserisci un numero");
                     }
                     break;
                 } else {
                     throw new IllegalArgumentException("Codice articolo inserito Sbagliato. Riporva.");
                 }
             }catch(IllegalArgumentException e){
+                input.nextLine();
                 System.out.println(e.getMessage());
             }
         }
