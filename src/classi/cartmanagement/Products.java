@@ -12,6 +12,15 @@ import java.util.Scanner;
  */
 public class Products {
     private static ArrayList<Product> data = new ArrayList<>();
+//----------------------------------------------------------------------------------------------------------------------
+    //Constructor
+    /**
+     * Costruttore vuoto.
+     */
+    public Products() {
+    }
+//----------------------------------------------------------------------------------------------------------------------
+    //Default Methods
     /**
      * Restituisce l'elenco dei prodotti in data.
      * @return L'elenco dei prodotti memorizzati in data.
@@ -19,12 +28,33 @@ public class Products {
     public ArrayList<Product> getDati() {
         return data;
     }
-
     /**
-     * Legge i dati di prodotto dal file Storage.txt e popola la collezione.
+     * Metodo equals non usato
+     */
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
+    /**
+     * Metodo clone non usato
+     */
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone();
+    }
+    /**
+     * Metodo toString non usato
+     */
+    @Override
+    public String toString() {
+        return super.toString();
+    }
+//----------------------------------------------------------------------------------------------------------------------
+    //metodo statico per lettura dal file di testo
+    /**
+     * Legge i dati dei prodotti dal file Storage.txt e popola la collezione.
      * Ogni riga del file rappresenta un prodotto con campi separati da '/'.
      * Il formato è: categoria/marca/prezzo/codice/quantità.
-     *
      * @throws IOException se si verifica un errore durante la lettura del file.
      */
     public static void shoppingMenu(){
@@ -45,19 +75,17 @@ public class Products {
                 data.add(product);
                 System.out.println("\n"+element[0]+", Marca: "+element[1]+", Prezzo: "+element[2]+", Codice Articolo: "+element[3]+", Quantità: "+element[4]);
             }
-            //System.out.println(data);
             bufferedReader.close();
         }catch(IOException ex) {
             System.out.println("Errore nella lettura del file 'Magazzino.txt'");
         }
     }
-
+    //metodo statico per la scelta dell'articolo da aggiungere al carrello
     /**
      * Consente all'utente di aggiungere articoli al carrello.
      * Legge il codice articolo dall'input e li convalida rispetto ai prodotti disponibili.
      * Se il codice articolo è valido e la quantità richiesta è disponibile, aggiunge l'articolo al carrello.
      * In caso contrario, vengono generate eccezioni appropriate.
-     *
      * @throws IllegalArgumentException se il codice articolo non è valido o la quantità richiesta è insufficiente.
      */
     public static void itemChoice(){
@@ -83,7 +111,6 @@ public class Products {
                 }
                 System.out.println("Inserire codice articolo corretto");
             }
-
             try {
                 if (!data.isEmpty()) {
                     System.out.println("Quanti ne vuoi di questo articolo? ");
@@ -119,10 +146,9 @@ public class Products {
             }
         }
     }
-
+    //metodo statico per la riscrittura del file di testo sottraendo la qunatità
     /**
-     * Legge i dati da un file, aggiorna la quantità di un articolo specifico e riscrive il file.
-     *
+     * Legge i dati dal file, aggiorna la quantità di un articolo specifico e riscrive il file.
      * @param itemCode Il codice dell'articolo da cercare nel file.
      * @param numberOfArticle Il numero di articoli da sottrarre alla quantità originale.
      * @throws IOException se si verifica un errore durante la lettura o la scrittura del file.

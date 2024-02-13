@@ -12,7 +12,13 @@ public class Product {
     private double price;
     private String code;
     private int quantity;
-
+//----------------------------------------------------------------------------------------------------------------------
+    //Constructor
+    /**
+     * Costruttore vuoto.
+     */
+    public Product() {
+    }
     /**
      * Costruttore per creare un nuovo prodotto.
      *
@@ -29,7 +35,8 @@ public class Product {
         this.code = code;
         this.quantity = quantity;
     }
-
+//----------------------------------------------------------------------------------------------------------------------
+    //default methods
     /**
      * Restituisce la categoria del prodotto.
      * @return La categoria del prodotto.
@@ -66,7 +73,6 @@ public class Product {
      * @param quantity La nuova quantità del prodotto.
      */
     public void setQuantity(int quantity) {this.quantity = quantity;}
-
     /**
      * Verifica se l'oggetto specificato è uguale a questo prodotto.
      *

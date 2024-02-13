@@ -1,5 +1,7 @@
 package classi.usermanagement;
 
+import classi.cartmanagement.ShoppingCart;
+
 import java.util.*;
 
 /**
@@ -12,7 +14,8 @@ public class User implements OptionalData {
     private String surname;
     private String email;
     private String password;
-
+    public static String key;
+//----------------------------------------------------------------------------------------------------------------------
     //Constructor
     /**
      * Costruttore vuoto.
@@ -36,8 +39,15 @@ public class User implements OptionalData {
         this.email = email;
         this.password = password;
     }
-
+//----------------------------------------------------------------------------------------------------------------------
     //Default Methods
+    /**
+     * Restituisce il valore associato alla variabile key.
+     * @return key di tipo String.
+     */
+    public String getKey() {
+        return key;
+    }
     /**
      * Verifica se due oggetti Classi.UserManagement.User sono uguali.
      * @param o L'oggetto da confrontare.
@@ -72,7 +82,7 @@ public class User implements OptionalData {
     protected Object clone() throws CloneNotSupportedException {
         return super.clone();
     }
-
+//----------------------------------------------------------------------------------------------------------------------
     //metodo di istanza per verificare il login
     /**
      * Verifica se l'utente può effettuare l'accesso.
@@ -90,6 +100,7 @@ public class User implements OptionalData {
             for (User use : usersList) {
                 if (use.email.equals(email) && use.password.equals(password)) {
                     access = true;
+                    key = email;
                     break;
                 }
             }
@@ -101,10 +112,9 @@ public class User implements OptionalData {
         }
         return access;
     }
-
     //metodo di istanza per verificare l'autnticazione dello user per comprare gli articoli nel carrello
     /**
-     * Verifica se l'utente può effettuare l'accesso.
+     * Verifica dei dati dell'utente per comprare gli articoli.
      * @return True se l'accesso è consentito, altrimenti False.
      */
     public boolean LoginAutentication(){
@@ -135,13 +145,12 @@ public class User implements OptionalData {
         }
         return verified;
     }
-    //----------------------------------------------------------------------------------------------------------------------
+//----------------------------------------------------------------------------------------------------------------------
     //metodo statico chiamato nel main, usato per leggere i dati dell'utente da input
     /**
      * Legge i dati utente dall'input e crea un nuovo oggetto Utente.
      * Convalida l'input dell'utente per nome, cognome, e-mail e password.
      * Se un input non è valido, vengono generate le eccezioni appropriate.
-     *
      * @throws IllegalArgumentException se i dati di input non sono validi.
      */
     public static void ReadingUserData(){
@@ -188,25 +197,24 @@ public class User implements OptionalData {
             }
         }
         System.out.println("Registrazione avvenuta con successo.");
+        key = email;
+        ShoppingCart.fillMap(email);
         User newUser = new User(name, surname, email, password);
         UserDataRegister(newUser);
     }
-
     //metodo statico usato per creare una lista di tutti i dati di ogni utente
     /**
      * Aggiunge un nuovo utente all'elenco degli utenti.
-     *
      * @param newUser L'oggetto Classi.UserManagement.User da aggiungere.
      */
     public static void UserDataRegister(User newUser){
         usersList.add(newUser);
         //System.out.println(usersList.toString());
     }
-
+//----------------------------------------------------------------------------------------------------------------------
     //Metodo ereditato dalla classe interfaccia Classi.UserManagement.Classi.UserManagement.OptionalData
     /**
      * Imposta il sesso dell'utente.
-     *
      * @param ses Il valore del sesso da impostare (ad esempio, "maschio" o "femmina").
      */
     @Override

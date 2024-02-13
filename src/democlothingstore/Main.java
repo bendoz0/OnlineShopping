@@ -78,15 +78,11 @@ public class Main{
                                             option = input.nextLine();
                                             switch (option) {
                                                 case "1":
-                                                    if (!objectShoppingCart.getCart().isEmpty()) {
-                                                        boolean verify = objectUser.LoginAutentication();
-                                                        if (verify) {
-                                                            // creo un arraylist uguale a "cart" nella classe Classi.CartManagement.Classi.CartManagement.ShoppingCart, per azzerarlo
-                                                            ArrayList<Product> emptyCart = new ArrayList<>();
-                                                            objectShoppingCart.setCart(emptyCart);
-                                                        }
-                                                    }else{
-                                                        System.out.println("Il carrello è vuoto non c'è nulla da comprare");
+                                                    //richiamo del metodo per inserire i dati dell'utente per la verifica per poterli comprare
+                                                    boolean verify = objectUser.LoginAutentication();
+                                                    if (verify) {
+                                                        //svuoto il carrello dell'utente
+                                                        objectShoppingCart.emptyCart();
                                                     }
                                                     break;
                                                 case "2":
