@@ -17,6 +17,7 @@ public class ShoppingCart  extends Astract {
     //Constructor
     /**
      * Costruttore vuoto.
+     * usato per creare riferirsi a questa classe.
      */
     public ShoppingCart() {
     }
@@ -48,7 +49,7 @@ public class ShoppingCart  extends Astract {
     /**
      * metodo ereditato dalla classe astratta Astract
      * Stampa i dettagli dei prodotti nel carrello.
-     * @return `true` se il carrello è vuoto, altrimenti `false`.
+     * @return {@code true} se il carrello è vuoto, altrimenti {@code false}.
      */
     @Override
     public boolean printCart(){
@@ -75,6 +76,10 @@ public class ShoppingCart  extends Astract {
         }
     }
     //metodo di istanza per la verifica dello stato del carrello
+    /**
+     * metodo d'istanza che verifica sulla base dell'utente che ha accesso se il suo carrello è vuoto o no.
+     * Se contiene qualcosa viene pulito, per simulare che ha comprato gli articoli.
+     */
     public void emptyCart(){
         User emailKey = new User();
         String email = emailKey.getKey();
@@ -89,8 +94,7 @@ public class ShoppingCart  extends Astract {
 //----------------------------------------------------------------------------------------------------------------------
     //metodo statico per la ricerca del articolo scelto dall'utente
     /**
-     * Trova un articolo nel catalogo in base al codice specificato e aggiunge una quantità specifica al carrello.
-     *
+     * Trova un articolo nel catalogo in base al codice specificato e aggiunge la quantità specifica al carrello.
      * @param itemCode Il codice dell'articolo da cercare.
      * @param numberOfArticle La quantità di articoli da aggiungere al carrello.
      */
@@ -118,6 +122,9 @@ public class ShoppingCart  extends Astract {
         }
     }
     //metodo statico per inizzializzare il carrello per ogni utente che si registra
+    /**
+     * metodo statico che crea un carrello apposta per ogni utente.
+     */
     public static void fillMap (String mail){
         usersCart.putIfAbsent(mail, new ArrayList<Product>());
     }

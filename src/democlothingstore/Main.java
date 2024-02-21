@@ -1,11 +1,9 @@
 package democlothingstore;
 
-import classi.cartmanagement.Product;
 import classi.cartmanagement.Products;
 import classi.cartmanagement.ShoppingCart;
 import classi.usermanagement.User;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main{

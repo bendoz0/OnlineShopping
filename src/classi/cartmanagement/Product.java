@@ -21,7 +21,6 @@ public class Product {
     }
     /**
      * Costruttore per creare un nuovo prodotto.
-     *
      * @param category  La categoria del prodotto.
      * @param brand     Il marchio del prodotto.
      * @param price     Il prezzo del prodotto.
@@ -75,7 +74,6 @@ public class Product {
     public void setQuantity(int quantity) {this.quantity = quantity;}
     /**
      * Verifica se l'oggetto specificato è uguale a questo prodotto.
-     *
      * @param o L'oggetto da confrontare con questo prodotto.
      * @return `true` se l'oggetto è uguale a questo prodotto, altrimenti `false`.
      */
@@ -88,7 +86,6 @@ public class Product {
     }
     /**
      * Crea una copia superficiale di questo prodotto.
-     *
      * @return La copia superficiale dell'oggetto.
      * @throws CloneNotSupportedException Se la clonazione non è supportata.
      */
@@ -98,7 +95,6 @@ public class Product {
     }
     /**
      * Restituisce una rappresentazione testuale di questo prodotto.
-     *
      * @return Una stringa che descrive il prodotto con i suoi attributi.
      */
     @Override

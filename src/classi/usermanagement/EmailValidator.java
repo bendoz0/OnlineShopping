@@ -25,7 +25,6 @@ public class EmailValidator {
 
     /**
      * Convalida se l'indirizzo e-mail specificato è sintatticamente valido.
-     *
      * @param hex L'indirizzo e-mail da convalidare.
      * @return {@code true} se l'indirizzo email è valido, {@code false} in caso contrario.
      */

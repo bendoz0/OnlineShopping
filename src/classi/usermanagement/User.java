@@ -5,7 +5,8 @@ import classi.cartmanagement.ShoppingCart;
 import java.util.*;
 
 /**
- * Questa classe rappresenta un utente.
+ * Questa classe serve per qualsiasi legame con l'utente.
+ * Ovvero la sua registrazione sul sito, l'accesso al sito, ed eventuali verifiche.
  * @author Jacopo Bendotti
  */
 public class User implements OptionalData {
@@ -18,7 +19,7 @@ public class User implements OptionalData {
 //----------------------------------------------------------------------------------------------------------------------
     //Constructor
     /**
-     * Costruttore vuoto.
+     * Costruttore di default per creare oggetti relativi a questa classe.
      */
     public User(){
         name = "";
@@ -27,7 +28,7 @@ public class User implements OptionalData {
         password = "";
     }
     /**
-     * Costruttore con parametri.
+     * Costruttore con parametri per la creazione del profilo dell'utente.
      * @param name Il name dell'utente.
      * @param surname Il surname dell'utente.
      * @param email L'indirizzo email dell'utente.
@@ -51,7 +52,7 @@ public class User implements OptionalData {
     /**
      * Verifica se due oggetti Classi.UserManagement.User sono uguali.
      * @param o L'oggetto da confrontare.
-     * @return True se gli oggetti sono uguali, altrimenti False.
+     * @return {@code true} se gli oggetti sono uguali, altrimenti {@code false}.
      */
     @Override
     public boolean equals(Object o) {
@@ -115,7 +116,7 @@ public class User implements OptionalData {
     //metodo di istanza per verificare l'autnticazione dello user per comprare gli articoli nel carrello
     /**
      * Verifica dei dati dell'utente per comprare gli articoli.
-     * @return True se l'accesso è consentito, altrimenti False.
+     * @return {@code true} se l'accesso è consentito, altrimenti {@code false}.
      */
     public boolean LoginAutentication(){
         Scanner input = new Scanner(System.in);

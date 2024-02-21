@@ -10,4 +10,9 @@ public interface OptionalData {
      * @param ses Il valore del sesso da impostare (ad esempio, "maschio" o "femmina").
      */
     void setSex(String ses);
+    /**
+     * Verifica le credenziali di un utente se è registrato al sito.
+     * @return access qunado le credenziali sono presenti nel registro quindi access == true.
+     */
+    boolean LoginVerification();
 }
