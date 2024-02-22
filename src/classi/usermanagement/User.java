@@ -134,7 +134,6 @@ public class User implements OptionalData {
             for (User use : usersList) {
                 if (use.name.equals(name) && use.surname.equals(surname) && use.email.equals(email) && use.password.equals(password)) {
                     verified = true;
-                    System.out.println("\nGrazie mille "+name+" per aver acquistato su ZalandoCOPY.\nLa consegna del tuo ordine è prevista tra 5 giorni lavorativi a partire da oggi.");
                     break;
                 }
             }

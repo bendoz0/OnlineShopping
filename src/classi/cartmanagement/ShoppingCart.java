@@ -87,6 +87,7 @@ public class ShoppingCart  extends Astract {
             if(usersCart.get(email).isEmpty()){
                 System.out.println("Il carrello è vuoto non c'è nulla da comprare");
             }else{
+                System.out.println("\nGrazie mille per aver acquistato su ZalandoCOPY.\nLa consegna del tuo ordine è prevista tra 5 giorni lavorativi a partire da oggi.");
                 usersCart.get(email).clear();
             }
         }
